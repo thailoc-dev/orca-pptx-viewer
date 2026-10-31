@@ -1,0 +1,38 @@
+{
+  "manifestVersion": 2,
+  "id": "pptx-viewer",
+  "publisher": "thailoc-dev",
+  "name": "Presentation Viewer",
+  "version": "0.1.0",
+  "execution": "sandboxed-ui",
+  "description": "Preview PowerPoint presentations (.pptx, .ppsx, .potx and macro-enabled forms) in Orca, with shapes, pictures, tables, charts, slide navigation and zoom.",
+  "license": "MIT",
+  "repository": "https://github.com/thailoc-dev/orca-pptx-viewer",
+  "engines": {
+    "orca": ">=1.4.245"
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "id": "pptx",
+        "title": "Presentation Preview",
+        "extensions": [
+          ".pptx",
+          ".ppsx",
+          ".potx",
+          ".pptm",
+          ".ppsm",
+          ".potm"
+        ],
+        "entry": "editor/index.html",
+        "priority": "default",
+        "contentKind": "bytes"
+      }
+    ]
+  },
+  "capabilities": [],
+  "cover": {
+    "path": "images/cover.png",
+    "alt": "Presentation Viewer in an Orca editor tab, showing a quarterly-review slide with stat cards and a bar chart"
+  }
+}
