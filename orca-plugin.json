@@ -1,15 +1,14 @@
 {
   "manifestVersion": 2,
   "id": "pptx-viewer",
-  "publisher": "thailoc-dev",
   "name": "Presentation Viewer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "execution": "sandboxed-ui",
-  "description": "Preview PowerPoint presentations (.pptx, .ppsx, .potx and macro-enabled forms) in Orca, with shapes, pictures, tables, charts, slide navigation and zoom.",
+  "description": "Preview PowerPoint presentations (.pptx, .ppsx, .potx and macro-enabled forms) in Orca, with slide thumbnails, find, speaker notes, zoom and slide navigation.",
   "license": "MIT",
   "repository": "https://github.com/thailoc-dev/orca-pptx-viewer",
   "engines": {
-    "orca": ">=1.4.245"
+    "orca": ">=1.4.246"
   },
   "contributes": {
     "customEditors": [

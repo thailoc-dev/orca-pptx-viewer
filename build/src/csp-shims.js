@@ -43,10 +43,17 @@ function base64(bytes) {
 }
 
 globalThis.Blob = TrackedBlob
+// Thumbnails and the slide list can ask for the same picture more than once; encode each Blob once.
+const encoded = new WeakMap()
 URL.createObjectURL = (object) => {
   const bytes = tracked.get(object)
   if (!bytes) return nativeCreate(object)
-  return `data:${object.type || 'application/octet-stream'};base64,${base64(bytes)}`
+  let url = encoded.get(object)
+  if (!url) {
+    url = `data:${object.type || 'application/octet-stream'};base64,${base64(bytes)}`
+    encoded.set(object, url)
+  }
+  return url
 }
 URL.revokeObjectURL = (url) => {
   if (typeof url === 'string' && !url.startsWith('data:')) nativeRevoke(url)

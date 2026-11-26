@@ -69,21 +69,34 @@ const html = `<!doctype html>
 </head>
 <body>
 <div class="app">
+<div class="search-bar" id="search-bar" role="search" hidden><input id="search" type="search" placeholder="Find in presentation" aria-label="Find in presentation" autocomplete="off" spellcheck="false"><span id="search-count" class="search-count" aria-live="polite"></span><button id="search-prev" type="button" class="icon" title="Previous match (Shift+Enter)" aria-label="Previous match"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button><button id="search-next" type="button" class="icon" title="Next match (Enter)" aria-label="Next match"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><button id="close-search" type="button" title="Close (Esc)" aria-label="Close find">×</button></div>
+<div class="main">
+<nav class="thumbs" id="thumbs" aria-label="Slides" hidden></nav>
 <div class="content">
 <div class="viewport" id="viewport" tabindex="0" aria-label="Presentation preview"><div class="slides" id="slides"></div></div>
 <div class="message" id="message" role="status"></div>
 </div>
+</div>
+<section class="notes" id="notes" aria-labelledby="notes-title" hidden><div class="notes-title" id="notes-title">Notes</div><div class="notes-text" id="notes-text"></div></section>
 <div class="link-bar" id="link-bar" hidden><label for="link">Copy link address</label><input id="link" readonly aria-label="Link address"><button id="close-link" type="button" aria-label="Close link address">×</button></div>
 <div class="footer">
+<button id="toggle-thumbs" type="button" class="icon" title="Slide thumbnails" aria-label="Slide thumbnails" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
+<span class="separator"></span>
 <button id="prev" type="button" title="Previous slide" aria-label="Previous slide">‹</button>
+<span class="slide-nav"><input id="slide-input" class="slide-input" inputmode="numeric" autocomplete="off" aria-label="Go to slide number"><span id="slide-total" class="slide-total"></span></span>
 <button id="next" type="button" title="Next slide" aria-label="Next slide">›</button>
 <span class="separator"></span>
-<button id="out" type="button" title="Zoom out" aria-label="Zoom out">−</button>
-<button id="fit" type="button" title="Fit to width" aria-label="Fit to width">Fit</button>
-<button id="in" type="button" title="Zoom in" aria-label="Zoom in">+</button>
+<button id="out" type="button" title="Zoom out (Ctrl −)" aria-label="Zoom out">−</button>
+<button id="fit" type="button" title="Fit to width (Ctrl 0)" aria-label="Fit to width">Fit</button>
+<button id="page" type="button" title="Fit whole slide" aria-label="Fit whole slide">Page</button>
+<button id="in" type="button" title="Zoom in (Ctrl +)" aria-label="Zoom in">+</button>
 <span id="percent" class="percent">100%</span>
+<span class="separator"></span>
+<button id="toggle-search" type="button" class="icon" title="Find (Ctrl F)" aria-label="Find" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
+<button id="toggle-notes" type="button" class="icon" title="Speaker notes" aria-label="Speaker notes" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7"/></svg></button>
+<span id="status" class="status" role="status" hidden></span>
 <span class="label">Presentation · Read only</span>
-<span id="count" class="slide-count" aria-live="polite"></span>
+<span id="count" class="visually-hidden" aria-live="polite"></span>
 </div>
 </div>
 <script>${js}</script>

@@ -36,6 +36,7 @@ export async function fixture() {
   title.background = { color: 'FBF5E6' }
   title.addText('Quarterly review', { x: 0.5, y: 1.2, w: 9, h: 1, fontSize: 40, bold: true, color: 'B8461F' })
   title.addText('Visit the docs', { x: 0.5, y: 2.6, w: 9, h: 0.6, fontSize: 18, hyperlink: { url: 'https://example.com/docs' } })
+  title.addNotes('Welcome everyone.\nKeep this under two minutes.')
   title.addImage({ data: `image/png;base64,${RED_PNG}`, x: 7.5, y: 3.5, w: 1.5, h: 1.5 })
 
   const table = pptx.addSlide()
@@ -52,6 +53,7 @@ export async function fixture() {
 
   const chart = pptx.addSlide()
   chart.addText('Growth', { x: 0.5, y: 0.3, w: 9, h: 0.6, fontSize: 28 })
+  chart.addNotes('Growth came from the North region.')
   chart.addChart(pptx.ChartType.bar, [{ name: 'Sales', labels: ['Q1', 'Q2', 'Q3'], values: [40, 65, 90] }], {
     x: 0.5, y: 1.2, w: 8, h: 4
   })

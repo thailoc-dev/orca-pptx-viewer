@@ -19,10 +19,11 @@ needed. Google Chrome's headless mode is not used: it drops clicks near the bott
 
 | File | Purpose |
 | --- | --- |
-| `src/editor.js`, `src/editor.css` | Frame API, versions, navigation, zoom, links, controls |
+| `src/editor.js`, `src/editor.css` | Frame API, versions, navigation, zoom, thumbnails, find, notes, links |
 | `src/csp-shims.js` | Turns the renderer's `blob:` URLs into `data:` URLs the CSP accepts |
 | `src/set-immediate.js`, `src/no-node-stream.js` | CSP-safe stand-ins for JSZip's polyfills |
 | `src/document-message.js` | Versioned byte-document validation and the size cap |
+| `src/notes.js` | Reads a slide's speaker notes from the package on demand |
 | `test/harness.mjs`, `test/fixture.mjs` | Orca-like sandbox and a synthetic deck |
 
 - The renderer creates `blob:` URLs for pictures. `csp-shims.js` makes `Blob` remember the bytes
